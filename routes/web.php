@@ -15,3 +15,4 @@ Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 //Admin
 Route::get('/superadmin', [SuperAdminController::class, 'index'])->name('superadmin');
+Route::get('/superadmin/users', [SuperAdminController::class, 'users'])->name('superadmin_users');

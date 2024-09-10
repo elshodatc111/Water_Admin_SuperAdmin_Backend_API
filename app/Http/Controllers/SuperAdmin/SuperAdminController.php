@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 class SuperAdminController extends Controller
 {
     public function index(){
-        return 'SuperAdmin';
+        return view('superadmin.home');
+    }
+    public function users(){
+        return view('superadmin.users');
     }
 }
