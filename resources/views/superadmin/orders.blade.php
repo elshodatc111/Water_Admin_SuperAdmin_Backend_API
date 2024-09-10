@@ -3,19 +3,20 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
     <div class="container-fluid px-5">
-        <h4 class="w-100 text-center text-primary">Buyurtmachilar</h4>
+        <h4 class="w-100 text-center text-primary">Buyurtmalar</h4>
         <table id="usersTable" class="table table-striped table-bordered">
-            <thead >
+            <thead>
                 <tr>
                     <th class="bg-primary text-white text-center">#</th>
-                    <th class="bg-primary text-white text-center">FIO</th>
-                    <th class="bg-primary text-white text-center">Addres</th>
-                    <th class="bg-primary text-white text-center">Phone</th>
-                    <th class="bg-primary text-white text-center">Jami buyurtmalar</th>
-                    <th class="bg-primary text-white text-center">Aktiv</th>
-                    <th class="bg-primary text-white text-center">Yakunlandi</th>
-                    <th class="bg-primary text-white text-center">Bekor qilindi</th>
-                    <th class="bg-primary text-white text-center">Status</th>
+                    <th class="bg-primary text-white text-center">Buyurtmachi</th>
+                    <th class="bg-primary text-white text-center">Muyurtma manzili</th>
+                    <th class="bg-primary text-white text-center">Buyurtma vaqti</th>
+                    <th class="bg-primary text-white text-center">Firma nomi</th>
+                    <th class="bg-primary text-white text-center">Buyurtma soni</th>
+                    <th class="bg-primary text-white text-center">Buyurtma xolati</th>
+                    <th class="bg-primary text-white text-center">Kurrer</th>
+                    <th class="bg-primary text-white text-center">Oxirgi amaliyot</th>
+                    <th class="bg-primary text-white text-center">Reyting</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,16 +26,6 @@
                     <td>in</td>
                     <td>ss</td>
                     <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
                     <td>in</td>
                     <td>6095</td>
                     <td>Moircy</td>
@@ -44,38 +35,6 @@
                 <tr>
                     <td>1</td>
                     <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
                     <td>in</td>
                     <td>in</td>
                     <td>ss</td>
@@ -91,6 +50,7 @@
                     <td>in</td>
                     <td>ss</td>
                     <td>in</td>
+                    <td>in</td>
                     <td>6095</td>
                     <td>Moircy</td>
                     <td>2000/11/01</td>
@@ -98,6 +58,19 @@
                 </tr>
                 <tr>
                     <td>1</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>ss</td>
+                    <td>ss</td>
+                    <td>in</td>
+                    <td>6095</td>
+                    <td>Moircy</td>
+                    <td>2000/11/01</td>
+                    <td>33%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>in</td>
                     <td>in</td>
                     <td>in</td>
                     <td>in</td>
@@ -113,6 +86,7 @@
                     <td>in</td>
                     <td>in</td>
                     <td>ss</td>
+                    <td>in</td>
                     <td>6095</td>
                     <td>Moircy</td>
                     <td>2000/11/01</td>
@@ -124,6 +98,7 @@
                     <td>in</td>
                     <td>ss</td>
                     <td>in</td>
+                    <td>in</td>
                     <td>6095</td>
                     <td>Moircy</td>
                     <td>2000/11/01</td>
@@ -131,6 +106,43 @@
                 </tr>
                 <tr>
                     <td>1</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>ss</td>
+                    <td>6095</td>
+                    <td>Moircy</td>
+                    <td>2000/11/01</td>
+                    <td>33%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>ss</td>
+                    <td>6095</td>
+                    <td>Moircy</td>
+                    <td>2000/11/01</td>
+                    <td>33%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>ss</td>
+                    <td>in</td>
+                    <td>in</td>
+                    <td>6095</td>
+                    <td>Moircy</td>
+                    <td>2000/11/01</td>
+                    <td>33%</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>in</td>
                     <td>in</td>
                     <td>in</td>
                     <td>in</td>
@@ -144,6 +156,7 @@
                     <td>1</td>
                     <td>in</td>
                     <td>ss</td>
+                    <td>in</td>
                     <td>in</td>
                     <td>in</td>
                     <td>6095</td>

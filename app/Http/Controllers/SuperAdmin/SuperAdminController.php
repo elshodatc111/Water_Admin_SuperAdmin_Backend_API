@@ -13,4 +13,10 @@ class SuperAdminController extends Controller
     public function users(){
         return view('superadmin.users');
     }
+    public function admin(){
+        return 'admin';
+    }
+    public function profile(){
+        return 'profile';
+    }
 }
