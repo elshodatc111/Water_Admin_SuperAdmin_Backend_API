@@ -24,10 +24,6 @@ class ApiUserController extends Controller{
         $phone = $request->phone;
         $randomNumber = rand(10000, 99999);
         $lastFourCharacters = substr($phone, -13,-7)."...".substr($phone, -4);
-        ValidatePhone::create([
-            'phone' => $phone,
-            'code' => $randomNumber,
-        ]);
         return response()->json([
             'status' => true,
             'phone' => $phone,
@@ -54,16 +50,16 @@ class ApiUserController extends Controller{
             $ValidatePhone->save();
             if($User){
                 return response()->json([
-                    'status' => true,
+                    'status' => 'token',
                     'message' => 'Your request has been successfully completed',
                     'token' => $User->createToken("API TOKEN")->plainTextToken
-                ],201);
+                ],200);
             }else{
                 return response()->json([
-                    'status' => true,
+                    'status' => 'new',
                     'phone' => $request->phone,
                     'message' => 'Ismingizni kiriting',
-                ],201);
+                ],200);
             }
         }else{
             return response()->json([
@@ -99,7 +95,7 @@ class ApiUserController extends Controller{
             'password' => 0,
         ]);
         return response()->json([
-            'status' => true,
+            'status' => 'token',
             'message' => 'Siz mofaqiyatli ro\'yhatdan o\'tdingiz',
             'token' => $User->createToken("API TOKEN")->plainTextToken
         ],201);
