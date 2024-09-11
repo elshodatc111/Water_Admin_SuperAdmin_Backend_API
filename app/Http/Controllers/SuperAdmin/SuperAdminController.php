@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\SuperAdmin;
-
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,8 @@ class SuperAdminController extends Controller
         return view('superadmin.home');
     }
     public function users(){
-        return view('superadmin.users');
+        $User = User::where('rol','User')->get();
+        return view('superadmin.users',compact('User'));
     }
     public function admin(){
         return 'admin';

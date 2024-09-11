@@ -11,146 +11,21 @@
                     <th class="bg-primary text-white text-center">FIO</th>
                     <th class="bg-primary text-white text-center">Addres</th>
                     <th class="bg-primary text-white text-center">Phone</th>
-                    <th class="bg-primary text-white text-center">Jami buyurtmalar</th>
-                    <th class="bg-primary text-white text-center">Aktiv</th>
-                    <th class="bg-primary text-white text-center">Yakunlandi</th>
-                    <th class="bg-primary text-white text-center">Bekor qilindi</th>
                     <th class="bg-primary text-white text-center">Status</th>
+                    <th class="bg-primary text-white text-center">Ro'yhatdan o'tdi</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($User as $item)
                 <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
+                    <td class="text-center">{{ $loop->index+1 }}</td>
+                    <td>{{ $item['name'] }}</td>
+                    <td>{{ $item['addres'] }}</td>
+                    <td class="text-center">{{ $item['phone'] }}</td>
+                    <td class="text-center">{{ $item['status'] }}</td>
+                    <td style="text-align:right">{{ $item['created_at'] }}</td>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>ss</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>in</td>
-                    <td>ss</td>
-                    <td>in</td>
-                    <td>in</td>
-                    <td>6095</td>
-                    <td>Moircy</td>
-                    <td>2000/11/01</td>
-                    <td>33%</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

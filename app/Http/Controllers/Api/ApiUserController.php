@@ -88,7 +88,7 @@ class ApiUserController extends Controller{
             'addres' => 'NULL',
             'latitude' => 'NULL',
             'longitude' => 'NULL',
-            'status' => 'NULL',
+            'status' => 'true',
             'reyting' => '5',
             'count' => 0,
             'email' => time(),
