@@ -12,14 +12,10 @@ class User extends Authenticatable{
     protected $fillable = [
         'company_id',
         'name',
-        'rol',
         'phone',
+        'rol',
         'addres',
-        'latitude',
-        'longitude',
         'status',
-        'reyting',
-        'count',
         'email',
         'password',
     ];

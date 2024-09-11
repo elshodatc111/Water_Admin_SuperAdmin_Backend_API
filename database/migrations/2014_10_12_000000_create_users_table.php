@@ -10,14 +10,10 @@ return new class extends Migration{
             $table->id();
             $table->string('company_id')->default('NULL');
             $table->string('name');
-            $table->string('rol')->default('User');
             $table->string('phone')->unique()->default('NULL');
+            $table->string('rol')->default('User');
             $table->string('addres')->default('NULL');
-            $table->string('latitude')->default('NULL');
-            $table->string('longitude')->default('NULL');
             $table->string('status')->default('true');
-            $table->string('reyting')->default('5');
-            $table->integer('count')->default(0);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

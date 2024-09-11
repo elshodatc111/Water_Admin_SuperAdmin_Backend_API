@@ -21,5 +21,9 @@ Route::get('/superadmin/users', [SuperAdminController::class, 'users'])->name('s
 Route::get('/superadmin/admin', [SuperAdminController::class, 'admin'])->name('superadmin_admin');
 Route::get('/superadmin/profile', [SuperAdminController::class, 'profile'])->name('superadmin_profile');
 Route::get('/superadmin/orders', [OrderController::class, 'orders'])->name('superadmin_orders');
-Route::get('/superadmin/product', [ProductController::class, 'product'])->name('superadmin_product');
 Route::get('/superadmin/notification', [NotificationsController::class, 'notification'])->name('superadmin_notification');
+
+
+
+Route::get('/superadmin/product', [ProductController::class, 'product'])->name('superadmin_product');
+Route::post('/superadmin/product/create', [ProductController::class, 'create'])->name('superadmin_create');

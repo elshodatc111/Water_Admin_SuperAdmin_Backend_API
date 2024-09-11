@@ -11,7 +11,7 @@ class SuperAdminController extends Controller
         return view('superadmin.home');
     }
     public function users(){
-        $User = User::where('rol','User')->get();
+        $User = User::where('rol','User')->orderby('id','desc')->get();
         return view('superadmin.users',compact('User'));
     }
     public function admin(){

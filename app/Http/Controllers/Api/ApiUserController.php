@@ -24,6 +24,11 @@ class ApiUserController extends Controller{
         $phone = $request->phone;
         $randomNumber = rand(10000, 99999);
         $lastFourCharacters = substr($phone, -13,-7)."...".substr($phone, -4);
+        ValidatePhone::create([
+            'phone' => $phone,
+            'code' => $randomNumber,
+            'status' => 'true'
+        ]);
         return response()->json([
             'status' => true,
             'phone' => $phone,
@@ -46,8 +51,7 @@ class ApiUserController extends Controller{
         $ValidatePhone = ValidatePhone::where('phone',$request->phone)->where('code',$request->code)->where('status','true')->first();
         if($ValidatePhone){
             $User = User::where('phone',$request->phone)->where('rol','User')->first();
-            $ValidatePhone->status = 'false';
-            $ValidatePhone->save();
+            $ValidatePhone->delete();
             if($User){
                 return response()->json([
                     'status' => 'token',
