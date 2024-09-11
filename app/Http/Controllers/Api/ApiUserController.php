@@ -51,7 +51,7 @@ class ApiUserController extends Controller{
             if($User){
                 return response()->json([
                     'status' => 'token',
-                    'message' => 'Your request has been successfully completed',
+                    'message' => 'Mofaqiyatli verifikatsiyadan o\'tding\'iz',
                     'token' => $User->createToken("API TOKEN")->plainTextToken
                 ],200);
             }else{
@@ -90,9 +90,9 @@ class ApiUserController extends Controller{
             'longitude' => 'NULL',
             'status' => 'NULL',
             'reyting' => '5',
-            'count' => 1,
-            'email' => $request->name."@gmail.com",
-            'password' => 0,
+            'count' => 0,
+            'email' => time(),
+            'password' => Hash::make('12345678'),
         ]);
         return response()->json([
             'status' => 'token',
