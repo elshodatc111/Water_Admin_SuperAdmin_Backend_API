@@ -27,3 +27,10 @@ Route::get('/superadmin/notification', [NotificationsController::class, 'notific
 
 Route::get('/superadmin/product', [ProductController::class, 'product'])->name('superadmin_product');
 Route::post('/superadmin/product/create', [ProductController::class, 'create'])->name('superadmin_create');
+Route::get('/superadmin/product/{id}', [ProductController::class, 'show'])->name('superadmin_product_show');
+Route::post('/superadmin/product/update/image', [ProductController::class, 'imageUpdate'])->name('superadmin_product_image_update');
+Route::post('/superadmin/product/update/form', [ProductController::class, 'formUpdate'])->name('superadmin_product_form_update');
+Route::post('/superadmin/product/addres', [ProductController::class, 'newAddres'])->name('superadmin_product_new_addres');
+Route::post('/superadmin/product/delete', [ProductController::class, 'Delete'])->name('superadmin_product_delete');
+Route::post('/superadmin/product/admin/create', [ProductController::class, 'createAdmin'])->name('superadmin_product_create_admin');
+Route::post('/superadmin/product/admin/delete', [ProductController::class, 'deleteAdmin'])->name('superadmin_product_create_delete');
