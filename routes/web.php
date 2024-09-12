@@ -14,6 +14,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Admin
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/currer', [AdminController::class, 'currer'])->name('currer');
+Route::post('/currer/create', [AdminController::class, 'currer_create'])->name('currer_create');
 
 //SuperAdmin
 Route::get('/superadmin', [SuperAdminController::class, 'index'])->name('superadmin');
