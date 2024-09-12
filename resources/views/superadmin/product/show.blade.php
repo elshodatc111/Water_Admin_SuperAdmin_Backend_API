@@ -113,8 +113,9 @@
                             <div class="col-6">
                                 <select name="town" class="form-control">
                                     <option value="town">Tanlang</option>
-                                    <option value="Qarshi shaxar">Qarshi shaxar</option>
-                                    <option value="Qarshi tuman">Qarshi tuman</option>
+                                    <option value="Yakkabog' tumani">Yakkabog' tumani</option>
+                                    <option value="Qarshi tumani">Qarshi tumani</option>
+                                    <option value="Qarshi shahri">Qarshi shahri</option>
                                 </select>
                             </div>
                             <div class="col-6">

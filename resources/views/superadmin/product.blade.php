@@ -59,10 +59,10 @@
                     <div class="col-lg-6">
                         <label for="image">Firma logotipi</label>
                         <input type="file" name="image" class="form-control" required>
-                        <label for="price" class="mt-2">Firma ish vaqti (08:00-20:00)</label>
-                        <input type="text" name="price" class="form-control" required>
-                        <label for="work_time" class="mt-2">Maxsulot narxi</label>
-                        <input type="number" name="work_time" class="form-control" required>
+                        <label for="work_time" class="mt-2">Firma ish vaqti (08:00-20:00)</label>
+                        <input type="text" name="work_time" class="form-control" required>
+                        <label for="price" class="mt-2">Maxsulot narxi</label>
+                        <input type="number" name="price" class="form-control" required>
                     </div>
                     <div class="col-12">
                         <label for="discriotion" class="mt-2">Firma mashuloti haqida</label>

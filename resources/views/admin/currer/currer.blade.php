@@ -17,19 +17,28 @@
                                 <th>Telefon raqam</th>
                                 <th>Reyting</th>
                                 <th>Status</th>
-                            </tr>
+                            </tr> 
                         </thead>
                         <tbody>
+                            @forelse($Kurrers as $item)
                             <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>4</td>
-                                <td>4</td>
+                                <td>{{ $loop->index+1 }}</td>
+                                <td><a href="{{ $item['id'] }}">{{ $item['name'] }}</a></td>
+                                <td>{{ $item['phone'] }}</td>
+                                <td>{{ $item['reyting'] }} ({{ $item['reyting_count'] }})</td>
+                                <td>
+                                    @if($item['status']=='true')
+                                    Aktiv
+                                    @else 
+                                    Bloklangan
+                                    @endif
+                                </td>
                             </tr>
+                            @empty
                             <tr>
                                 <td colspan=5 class="text-center">Kurrerlar mavjud emas.</td>
                             </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

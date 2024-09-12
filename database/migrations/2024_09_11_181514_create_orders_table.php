@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('company_id');
-            $table->integer('currer_id')->default(null);
+            $table->string('currer_id')->default(null);
             $table->integer('count')->default(1);   
             $table->string('city');
             $table->string('town');

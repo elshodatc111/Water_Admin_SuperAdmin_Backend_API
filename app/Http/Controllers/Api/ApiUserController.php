@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Api;
 use App\Models\ValidatePhone;
 use App\Models\User;
+use App\Models\Company;
+use App\Models\Product;
+use App\Models\Currer;
+use App\Models\Order;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Http;
 
 class ApiUserController extends Controller{
     public function login(Request $request){
@@ -106,4 +111,126 @@ class ApiUserController extends Controller{
     }
 
     
+    public function home(Request $request){
+        //return $request;
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+    
+        $response = Http::withHeaders([
+            'User-Agent' => 'Water-demo/1.0 (elshodatc1116@gmail.com)' 
+        ])->get('https://nominatim.openstreetmap.org/reverse', [
+            'lat' => $latitude,
+            'lon' => $longitude,
+            'format' => 'json',
+            'addressdetails' => 1,
+        ]);
+    
+        $data = $response->json();
+        if (isset($data['address'])) {
+            $address = $data['address'];
+            $addres = ([
+                'kocha' => $address['road'] ?? null,
+                'maxalla' => $address['village'] ?? $address['residential'] ?? $address['village'] ?? $address['town'] ?? null,
+                'shaxar' => $address['city'] ?? $address['county'] ?? $address['district'] ?? null,
+                'viloyat' => $address['state'] ?? null,
+            ]);
+            $Product = Product::where('town',$addres['shaxar'])->get();
+            $Products = array();
+            foreach ($Product as $key => $value) {
+               $company_id = $value->company_id;
+               $Company = Company::where('id',$company_id)->where('status','true')->first();
+               $Products[$key]['id'] = $Company['id'];
+               $Products[$key]['name'] = $Company['name'];
+               $Products[$key]['logo'] = $Company['logo'];
+               $Products[$key]['price'] = $Company['price'];
+               $Products[$key]['work_time'] = $Company['work_time'];
+               $Products[$key]['reyting'] = $Company['reyting'];
+               $Products[$key]['reyting_count'] = $Company['reyting_count'];
+            }
+            if(count($Products)==0){
+                $Product = "Xizmat ko'rsatish hududidan tashqaridasiz";
+            }
+            return response()->json([
+                'status' => 'success',
+                'addres' => $addres,
+                'data' => $Products,
+            ],200);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Xizmat ko\'rsatish hududidi emas'
+            ],401);
+        }
+    }
+    public function buyurtma(Request $request){
+        $validateUser = Validator::make($request->all(),[
+            'latitude' => 'required',
+            'longitude' => 'required',
+            'company_id' => 'required',
+            'count' => 'required',
+        ]);
+        if($validateUser->fails()){
+            return response()->json([
+                'status' => false,
+                'message' => 'Malumotlar to\'liq emas',
+                'errors' =>$validateUser->errors()
+            ],401);
+        }
+        if($request->count==0){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Buyurtmada xatolik'
+            ],401);
+        }
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+    
+        $response = Http::withHeaders([
+            'User-Agent' => 'Water-demo/1.0 (elshodatc1116@gmail.com)' 
+        ])->get('https://nominatim.openstreetmap.org/reverse', [
+            'lat' => $latitude,
+            'lon' => $longitude,
+            'format' => 'json',
+            'addressdetails' => 1,
+        ]);
+        $data = $response->json();
+        if (isset($data['address'])) {
+            $address = $data['address'];
+            $addres = ([
+                'kocha' => $address['road'] ?? null,
+                'maxalla' => $address['village'] ?? $address['residential'] ?? $address['village'] ?? $address['town'] ?? null,
+                'shaxar' => $address['city'] ?? $address['county'] ?? $address['district'] ?? null,
+                'viloyat' => $address['state'] ?? null,
+            ]);
+            $Company = Company::find($request->company_id);
+            if($Company){
+                $Order = Order::create([
+                    'user_id' => auth()->user()->id,
+                    'company_id' => $request->company_id,
+                    'currer_id' => 'null',
+                    'count' => $request->count,
+                    'city' => $addres['shaxar'],
+                    'town' => $addres['maxalla']." ".$addres['kocha'],
+                    'latitude' => $request->latitude,
+                    'longitude' => $request->longitude,
+                    'status' => 'Yangi',
+                    'addres' => $addres['kocha'],
+                ]);
+                return response()->json([
+                    'status' => 'success',
+                    'data' => $Order,
+                ],200);
+            }else{
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Buyurtmada xatolik'
+                ],401);
+            }
+        }else{
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Xizmat ko\'rsatish hududidan tashqarida'
+            ],401);
+        }
+    }
 }

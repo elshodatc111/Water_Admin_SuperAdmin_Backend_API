@@ -9,10 +9,8 @@ use App\Models\Currer;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class AdminController extends Controller
-{
-    public function __construct()
-    {
+class AdminController extends Controller{
+    public function __construct(){
         $this->middleware('auth');
     }
     public function index(){
@@ -20,8 +18,17 @@ class AdminController extends Controller
     }
     public function currer(){
         $Currer = Currer::where('company_id',auth()->user()->company_id)->get();
-        
-        return view('admin.currer.currer');
+        $Kurrers = array();
+        foreach ($Currer as $key => $value) {
+            $User = User::find($value->user_id);
+            $Kurrers[$key]['id'] = $User->id;
+            $Kurrers[$key]['name'] = $User->name;
+            $Kurrers[$key]['phone'] = $User->phone;
+            $Kurrers[$key]['reyting'] = $value->reyting;
+            $Kurrers[$key]['reyting_count'] = $value->reyting_count;
+            $Kurrers[$key]['status'] = $User->status;
+        }
+        return view('admin.currer.currer',compact('Kurrers'));
     }
     public function currer_create(Request $request){
         $validate = $request->validate([
@@ -48,4 +55,5 @@ class AdminController extends Controller
         ]);
         return back()->with('success', 'Yangi currer qo\'shildi.');
     }
+
 }
