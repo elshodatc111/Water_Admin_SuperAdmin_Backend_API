@@ -24,7 +24,7 @@ class ApiUserController extends Controller{
                 'status' => false,
                 'message' => 'Telefon raqam kiritilmagan',
                 'errors' =>$validateUser->errors()
-            ],401);
+            ],701);
         }
         $phone = $request->phone;
         $randomNumber = rand(10000, 99999);
@@ -51,7 +51,7 @@ class ApiUserController extends Controller{
                 'status' => false,
                 'message' => 'Malumotlar to\'liq yuborilmadi',
                 'errors' =>$validateUser->errors()
-            ],401);
+            ],701);
         }
         $ValidatePhone = ValidatePhone::where('phone',$request->phone)->where('code',$request->code)->where('status','true')->first();
         if($ValidatePhone){
@@ -62,7 +62,7 @@ class ApiUserController extends Controller{
                     'status' => 'token',
                     'message' => 'Mofaqiyatli verifikatsiyadan o\'tding\'iz',
                     'token' => $User->createToken("API TOKEN")->plainTextToken
-                ],200);
+                ],201);
             }else{
                 return response()->json([
                     'status' => 'new',
